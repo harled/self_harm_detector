@@ -1,20 +1,20 @@
-require "self_harm_detector/service"
-module Audited
+require "self_harm_detector/sensitive_content/data"
+module SelfHarmDetector
     # Specify this act if you want to save the analysis to persist on your model
     #
     #   class Post < ActiveRecord::Base
     #     detect_self_harm_on :field_of_choice
     #   end
     #
-    # Assumes there is a analysis_of_self_harm column of type text to exist on your model
-    module Model
+    # Assumes there is a detections table present
+    module Detector
         extend ActiveSupport::Concern
 
         CALLBACKS = [:analyze_for_self_harm]
 
         module ClassMethods
             def self_harm_detector(options = {})
-                include SelfHarmDetector::Model::SelfHarmDetectorInstanceMethods
+                include SelfHarmDetector::Detector::SelfHarmDetectorInstanceMethods
 
                 raise ArgumentError, "No attributes specified" if options.empty?
 
@@ -32,13 +32,17 @@ module Audited
 
         module SelfHarmDetectorInstanceMethods
             def analyze_for_self_harm
-                # count = SelfHarmDetector::SensitiveContent::Data::COMMON_SELF_HARM_PHRASES.filter{ |phrase| 
-                #     self.send(detector_options[:only].to_sym).downcase.scan(/(?=#{phrase.downcase})/).count > 0
-                # }.count
+                # TODO: Be smarter about this, only run if focus attribute is changed
 
-                # self.update(analysis_of_self_harm: count)
+                # Find the detection for the given detectable and attribute
+                detection = Detection.find_by(detectable: detectable, attribute: detector_options[:only].to_sym).first_or_create
 
-                puts "############### HEY ###############"
+                # Calculate the score (count the number of matches)
+                count = SelfHarmDetector::SensitiveContent::Data::COMMON_SELF_HARM_PHRASES.filter{ |phrase| 
+                    self.send(detector_options[:only].to_sym).downcase.scan(/(?=#{phrase.downcase})/).count > 0
+                }.count
+
+                detection.update(score: count)
             end
         end
     end
