@@ -3,7 +3,7 @@ module SelfHarmDetector
     # Specify this act if you want to save the analysis to persist on your model
     #
     #   class Post < ActiveRecord::Base
-    #     detect_self_harm_on :field_of_choice
+    #     detect_self_harm_on only: :field_of_choice
     #   end
     #
     # Assumes there is a detections table present
