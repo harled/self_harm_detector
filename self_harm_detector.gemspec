@@ -5,10 +5,10 @@ require_relative "lib/self_harm_detector/version"
 Gem::Specification.new do |spec|
   spec.name = "self_harm_detector"
   spec.version = SelfHarmDetector::VERSION
-  spec.authors = ["Chris Young"]
-  spec.email = ["chris@harled.ca"]
+  spec.authors = ["Jon Loos", "Chris Young"]
+  spec.email = ["jon@harled.ca", "chris@harled.ca"]
 
-  spec.summary = "Attempt to detect intention of self-harm."
+  spec.summary = "Attempt to detect intention of self-harm in text."
   spec.description = "Attempt to detect indications of self-harm intent through text analysis."
   spec.homepage = "https://github.com/harled/self_harm_detector"
   spec.license = "MIT"

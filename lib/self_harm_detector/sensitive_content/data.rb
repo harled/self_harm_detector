@@ -14,13 +14,13 @@ module SelfHarmDetector
                 "I want to hurt myself": {
                     category: :dysfunctional_thoughts
                 },
-                "I can’t bear to lie awake with my thoughts": {
+                "I can't bear to lie awake with my thoughts": {
                     category: :dysfunctional_thoughts
                 },
                 "I hate myself": {
                     category: :dysfunctional_thoughts
                 },
-                "I’m a worthless and disgusting trash excuse for a human": {
+                "I'm a worthless and disgusting trash excuse for a human": {
                     category: :dysfunctional_thoughts
                 },
                 "I am a worthless human being": {
@@ -62,7 +62,7 @@ module SelfHarmDetector
                 "I have no other escape": {
                     category: :dysfunctional_thoughts
                 },
-                "I feel like I’m drowning": {
+                "I feel like I'm drowning": {
                     category: :dysfunctional_thoughts
                 }
             }
