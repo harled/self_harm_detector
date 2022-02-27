@@ -30,6 +30,16 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## Containerized Applications
+If your application is containerized you can mount the project directory to the container in the docker-compose. Simply mount the volume:
+```yaml
+- ~/apps/self_harm_detector:/app/vendor/gems/self_harm_detector
+```
+to any container that requires it. Now you can add your gem to the gemfile:
+```ruby
+gem "self_harm_detector", path: "vendor/gems/self_harm_detector"
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/self_harm_detector. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/self_harm_detector/blob/master/CODE_OF_CONDUCT.md).
