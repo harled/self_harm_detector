@@ -5,7 +5,11 @@ RSpec.describe SelfHarmDetector do
     expect(SelfHarmDetector::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "detects lack of self harm intent" do 
+    expect(SelfHarmDetector.detect(text: "I really love myself today")).to be 0
+  end
+
+  it "detects self harm intent" do 
+    expect(SelfHarmDetector.detect(text: "I want to hurt myself")).to be 1
   end
 end
