@@ -8,6 +8,8 @@ Currently there is a very simple string matching algorithm enabled, with a basic
 
 Please evaluate if this gem and its approach are appropriate for your use case.
 
+Project Lead: Tim Bartram (tim@harled.ca)
+
 ## Installation
 
 Add this line to your application's Gemfile:
