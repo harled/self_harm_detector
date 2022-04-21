@@ -36,6 +36,16 @@ SelfHarmDetector.detect(text: "A sample set of text")
 
 The method will return the number of matches found in the (limited) dictionary.
 
+An alternate interface is available which returns a boolean if the text is concerning or not:
+
+```ruby
+# returns true if a score of more than zero
+SelfHarmDetector.concerning?(text: "A sample set of text")
+
+# returns true if a score of more than two
+SelfHarmDetector.concerning?(text: "A sample set of text", threshold: 2)
+```
+
 ## Development
 
 This project comes with a Ruby [devcontainer](https://code.visualstudio.com/docs/remote/containers) that works with vscode. It makes development easy and consistent.

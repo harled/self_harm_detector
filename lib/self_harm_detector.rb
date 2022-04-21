@@ -8,8 +8,12 @@ require_relative "self_harm_detector/sensitive_content/data"
 #   Expects a text to be a string
 module SelfHarmDetector
   def self.detect(text:)
-    SelfHarmDetector::SensitiveContent::Data::COMMON_SELF_HARM_PHRASES.keys.filter{ |phrase| 
-        text.downcase.scan(/(?=#{phrase.to_s.downcase})/).count > 0
-    }.count
+    SelfHarmDetector::SensitiveContent::Data::COMMON_SELF_HARM_PHRASES.keys.count { |phrase|
+      text.downcase.scan(/(?=#{phrase.to_s.downcase})/).count > 0
+    }
+  end
+
+  def self.concerning?(text:, threshold: 0)
+    detect(text: text) > threshold
   end
 end
