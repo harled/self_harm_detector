@@ -1,5 +1,12 @@
 # SelfHarmDetector
 
+**This project has been deprecated!** This project was part of a Harled goal cycle, with the purpose of getting initial
+experience in creating gems. The idea was to scope this gem to a very simple algorithm (in this case a regex) to 
+detect indications of self harm. Given the importance of "doing it right", and the amount of time to required to get it 
+there, the team decided it is best to archive the project for the time being with hopes to revisit it in the future.
+
+...
+
 Welcome to SelfHarmDetector, a simple approach to identifying the intention of self-harm in text. This gem is intended 
 to act as reference implementation that might be helpful in the identification of any sets of words or intentions 
 within text. This gem in no way intends to provide a comprehensive method for identifying self-harm in text.
